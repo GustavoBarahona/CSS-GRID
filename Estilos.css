@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header p {
+    font-size: 45px;
+    text-align: center;
+    padding: 18px;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    background: #333;
+    border-radius: 5px;
+    width: 80px;
+    padding: 10px;
+    margin: auto;
+    color: thistle;
+    margin-bottom: 20px;
+}
+
+a:hover{
+    background: #999;
+    color: royalblue;
+    border-radius: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: #f6f6f6;
+}
+
+
+h1 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* PRIMERA LECCIÓN CURSO BÁSCIO */
+
+.contenedor1 {
+    border: 3px solid #9999;
+    padding: 1px;
+    width: 80%;
+    height: 250px;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: minmax(100px, auto) minmax(50px, auto); */
+}
+
+.contenedor1 div {
+
+    background: #9999;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/* maxmin */
+
+.contenedor-minmax {
+    border: 3px solid #9999;
+    padding: 1px;
+    width: 80%;
+    /* height: 250px; */
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    /* grid-template-columns: minmax(100px, auto) 1fr 1fr minmax(50px, auto); */
+    grid-template-columns: 1fr 1fr 1fr minmax(80px, 130px);
+    grid-template-rows: minmax(100px, auto) 1fr minmax(300px, auto);
+}
+
+.contenedor-minmax div {
+    background: #9999;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/* REPEAT */
+
+.repeat {
+    width: 70%;
+    height: 500px;
+    margin: auto;
+    background: #f6f6f6;
+
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 200px repeat(4, 1fr) 200px;
+    grid-template-rows: repeat(3, 1fr);
+
+    border: 5px solid gray;
+
+    box-shadow: 0 25px 15px -20px;
+}
+
+.repeat>div {
+    background: #3333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* POSICIONAMIENTO */
+
+.posicionamiento {
+    width: 70%;
+    /* height: 500px; */
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid gray;
+    font-size: 30px;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.posicionamiento>div {
+    background: salmon;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.posicionamiento>div:nth-child(1) {
+    background: #ff8000;
+    /* grid-column: 1 / 4;
+    grid-row: 2 / 4; */
+
+    /*grid-area:
+    Indicamos el inicio de la fila y el inicio de la columna
+    luego el fin de la fila y fin de columna*/
+    /* grid-area: 2 / 2 / 4 / 4; */
+
+    /* grid-column: 1 / span 2; */
+    grid-column: span 3;
+    grid-row: 2 / span 3;
+}
+
+/* GRID AREAS */
+
+.areas {
+    width: 70%;
+    /* height: 500px; */
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid gray;
+    font-size: 30px;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "header header header"
+        "sidebar-1 contenido sidebar-2"
+        "sidebar-1 widgets sidebar-2"
+        "footer footer footer";
+
+}
+
+.areas>div {
+    background: springgreen;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.areas>.header {
+    background: tomato;
+    grid-column-start: header;
+    grid-column-end: header;
+}
+
+.areas>.sidebar-1 {
+    background: gray;
+
+    /*Forma nro 1*/
+    /* grid-column-start: sidebar-1;
+    grid-column-end: sidebar-1;
+    grid-row-start: sidebar-1;
+    grid-row-end: sidebar-1; */
+
+    /* Forma nro 2 */
+    /* grid-column: sidebar-1;
+    grid-row: sidebar-1; */
+
+    /* Forma nro 3 */
+    grid-area: sidebar-1;
+}
+
+.areas>.contenido {
+    background: #fff;
+    color: black;
+    grid-area: contenido;
+}
+
+.areas>.widgets {
+    background: tomato;
+    /* color: black; */
+    grid-area: widgets;
+}
+
+.areas>.sidebar-2 {
+    background: gray;
+    /* color: black; */
+    grid-area: sidebar-2;
+}
+
+.areas>.footer {
+    background: black;
+    color: white;
+    grid-area: footer;
+}
+
+.contenedor-alineacion {
+    width: 90%;
+    /* height: 500px; */
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid black;
+    font-size: 20px;
+    color: white;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 180px);
+
+    /* Alineación */
+    /* justify-items: start;
+    align-items: start; */
+
+    justify-items: center;
+    align-items: center;
+
+}
+
+/* ALINEACIÓN DE ELEMENTOS */
+
+.contenedor-alineacion div {
+    /* width: 50px; */
+    /* height: 50px; */
+    background: #666699;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-alineacion .item {
+    background: tomato;
+    /* justify-self: left; */
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+/* ALINEACIÓN DE TRACKS */
+
+.contenedor-alineacion-tracks {
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid black;
+    font-size: 20px;
+    color: black;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+
+    /* Alineación tracks */
+
+    /* justify-content: center; */
+    align-content: center;
+
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+    align-content: space-evenly;
+
+}
+
+.contenedor-alineacion-tracks div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hotpink;
+}
+
+/* GRID IMPLICITA */
+
+.contenedor-grid-implicita {
+    width: 90%;
+    padding: 1px;
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid black;
+    font-size: 20px;
+    color: black;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 150px 50px 150px;
+
+    /* grid-auto-columns: 200px; */
+    /* grid-auto-flow: column; */
+    /* grid-auto-flow: row; */
+    /* grid-auto-flow: dense; */
+    grid-auto-flow: row dense;
+    /* grid-auto-flow: column dense; */
+    grid-auto-rows: 80px;
+
+}
+
+.contenedor-grid-implicita div {
+    color: ivory;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: indigo;
+}
+
+.contenedor-grid-implicita .implicito {
+    background: #ff2e63;
+}
+
+.contenedor-grid-implicita .span2 {
+    grid-column: span 2;
+    background-color: tomato;
+}
+
+.contenedor-grid-implicita .span3 {
+    grid-column: span 3;
+    background-color: #575757;
+}
+
+/* GRID IMPLICITA COLUMNAS */
+
+.contenedor-grid-implicita-col {
+    width: 90%;
+    padding: 1px;
+    margin: auto;
+    background: #f6f6f6;
+    border: 5px solid black;
+    font-size: 20px;
+    color: black;
+    line-height: 50px;
+
+    /* GRID: */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 150px 65px 150px;
+
+    
+    /* grid-auto-flow: column; */
+    /* grid-auto-flow: row; */
+    /* grid-auto-flow: dense; */
+    /* grid-auto-flow: row dense; */
+
+    grid-auto-flow: column dense;
+    grid-auto-columns: 140px;
+}
+
+.contenedor-grid-implicita-col div {
+    color: ivory;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: indigo;
+}
+
+.contenedor-grid-implicita-col .implicito-col {
+    background: #ff2e63;
+}
+
+.contenedor-grid-implicita-col .span2-col {
+    grid-row: span 2;
+    background-color: tomato;
+}
+
+.contenedor-grid-implicita-col .span2-col-1 {
+    grid-row: span 3;
+    background-color: tomato;
+}
+
+.contenedor-fill-fit{
+    width: 60%;
+    padding: 1px;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    background: #f6f6f6;
+    border: 5px solid #9999;
+    display: grid;
+    gap: 1px;
+
+    /* grid-template-columns: repeat(4, minmax(100px, 1fr)) */
+    /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
+}
+
+.contenedor-fill-fit div{
+    background: #9999;
+}
+
+.contenedor-fill-fit div:nth-child(3){
+    background: yellow;
+    
+}
